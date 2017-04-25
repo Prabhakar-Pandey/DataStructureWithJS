@@ -28,6 +28,7 @@ SingleLinkList.prototype.addAtIndex=function(index,data){
 	var current = this.head;
 	var newNode = new Node(data);
 	var counter = 1;
+	var noIndexFound=true;
 	if(index===1){
 		newNode.next=this.head;
 		this.head=newNode;
@@ -37,14 +38,47 @@ SingleLinkList.prototype.addAtIndex=function(index,data){
 			if(counter===index){
 				newNode.next=current.next;
 				current.next=newNode;
-				
+				noIndexFound=false;
 				break;
+			}else{
+				noIndexFound=true;
 			}
 
 			current=current.next;
 		}
+		if(noIndexFound){
+			console.error('No index found error!');
+		}
 	}
-	
+}
+
+SingleLinkList.prototype.removeAtIndex=function(index){
+	var current = this.head;
+	var counter = 1;
+	var noIndexFound=true;
+	if(index===1){
+		this.head=current.next;
+	}else{
+		while(current!=null){
+			counter++;
+			if(counter===index){
+				var nextNode = current.next
+				if(nextNode){
+					current.next=nextNode.next;
+				}else{
+					current.next=null;
+				}
+				noIndexFound=false;
+				break;
+			}else{
+				noIndexFound=true;
+			}
+			current=current.next;
+		}
+		if(noIndexFound){
+			console.error("no index found!")
+		}
+	}
 }
 
 SingleLinkList.prototype.printNode=function(){
