@@ -24,6 +24,29 @@ SingleLinkList.prototype.addNode=function(data){
 	
 }
 
+SingleLinkList.prototype.addAtIndex=function(index,data){
+	var current = this.head;
+	var newNode = new Node(data);
+	var counter = 1;
+	if(index===1){
+		newNode.next=this.head;
+		this.head=newNode;
+	}else{
+		while(current!=null){
+			counter++;
+			if(counter===index){
+				newNode.next=current.next;
+				current.next=newNode;
+				
+				break;
+			}
+
+			current=current.next;
+		}
+	}
+	
+}
+
 SingleLinkList.prototype.printNode=function(){
 	var current = this.head;
 	while(current!=null){
@@ -35,4 +58,5 @@ var linkList = new SingleLinkList();
 linkList.addNode(10)
 linkList.addNode(20)
 linkList.addNode(30)
+linkList.addAtIndex(1,50)
 linkList.printNode();
