@@ -15,7 +15,7 @@ function callMeOnce(fn){
         
     }
 }
-let callMeOnceWrapper = new callMeOnce(greetings);
+let callMeOnceWrapper = callMeOnce(greetings);
 
 console.log(callMeOnceWrapper("Prabhakar"));
 console.log(callMeOnceWrapper("Prabhakar"));
