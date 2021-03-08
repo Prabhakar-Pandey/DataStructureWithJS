@@ -76,9 +76,3 @@ res = res.map((item,mapIndex)=>{
     return reducedArr.reduce((sum,item)=>item*sum,1);
 })
 console.log(res)
-// for(var i=0; i<nums.length;i++){
-   
-//     console.log(reducedArr)
-// }
-// let value = nums.reduce((sum,item)=>item*sum,1);
-// console.log(value)

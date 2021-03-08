@@ -2,7 +2,8 @@
  * Initialize your data structure here.
  */
 var Twitter = function() {
-    
+    this.tweets = {};
+    this.follower = {};
 };
 
 /**
@@ -12,7 +13,11 @@ var Twitter = function() {
  * @return {void}
  */
 Twitter.prototype.postTweet = function(userId, tweetId) {
-    
+    if(this.tweets[userId]){
+        this.tweets[userId].push(tweetId)
+    }else{
+        this.tweets[userId] = [tweetId]
+    }
 };
 
 /**
@@ -21,7 +26,26 @@ Twitter.prototype.postTweet = function(userId, tweetId) {
  * @return {number[]}
  */
 Twitter.prototype.getNewsFeed = function(userId) {
-    
+    let feeds = [];
+    let followers = this.follower[userId]||[];
+    if(followers.length){
+        
+        followers.forEach((item)=>{
+            if(this.tweets[item]){
+                feeds.push(this.tweets[item])
+            }
+            
+        })
+        if(this.tweets[userId]){
+            feeds.push(this.tweets[userId])
+        }
+        
+    }else{
+        if(this.tweets[userId]){
+            feeds.push(this.tweets[userId])
+        }
+    }
+    return feeds.slice(0,9);
 };
 
 /**
@@ -31,7 +55,11 @@ Twitter.prototype.getNewsFeed = function(userId) {
  * @return {void}
  */
 Twitter.prototype.follow = function(followerId, followeeId) {
-    
+    if(this.follower[followerId]){
+        this.follower[followerId].push(followeeId)
+    }else{
+        this.follower[followerId] = [followeeId]
+    }
 };
 
 /**
@@ -41,14 +69,31 @@ Twitter.prototype.follow = function(followerId, followeeId) {
  * @return {void}
  */
 Twitter.prototype.unfollow = function(followerId, followeeId) {
-    
+    let followers = this.follower[followerId];
+    if(followers.length){
+        this.follower[followerId] = followers.filter(item=>item!=followeeId)
+    }
+};
+Twitter.prototype.showData = function() {
+    console.log(this);
 };
 
 /** 
  * Your Twitter object will be instantiated and called as such:
- * var obj = new Twitter()
- * obj.postTweet(userId,tweetId)
+ **/
+ var obj = new Twitter()
+ obj.postTweet("1","5");
+ obj.postTweet("1","3");
+ //console.log(obj.getNewsFeed("1"));
+ //obj.follow("1","2");
+ //obj.postTweet("2","6");
+ console.log(obj.getNewsFeed("1"));
+ //obj.unfollow("1","2");
+ //console.log(obj.getNewsFeed("1"));
+ obj.showData()
+ /** obj.postTweet(userId,tweetId)
  * var param_2 = obj.getNewsFeed(userId)
  * obj.follow(followerId,followeeId)
  * obj.unfollow(followerId,followeeId)
  */
+
