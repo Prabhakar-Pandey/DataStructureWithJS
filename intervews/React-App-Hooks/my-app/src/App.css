@@ -1,0 +1,100 @@
+.app{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.wrapper{
+  width:80%;
+  background:#05396b;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.search-header{
+  background:#05396b;
+  padding: 10px;
+}
+
+.input{
+  margin: 0 auto;
+  display: inherit;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 340px;
+  display: block;
+  outline: none;
+  border: none;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  padding: 10px;
+  font-weight: 900;
+  height: 40px;
+}
+
+.card-container{
+  display: flex;
+    padding: 10px;
+    display: flex;
+    padding: 10px;
+    background: #5cdb94;
+    color: #fff;
+    margin-bottom: 10px;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.no-image{
+  background: url('./no-image.jpg');
+    width: 620px;
+    height: 253px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+}
+
+.effect7
+{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect7:before, .effect7:after
+{
+  content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+.effect7:after
+{
+  right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
+
+img{
+  width: 20%;
+  margin-right: 10px;
+}
+
+h2{
+  padding: 0;
+  margin: 0;
+}

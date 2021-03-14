@@ -3,7 +3,9 @@
 /then sort it by char and also first latter of string will be upparcase and . will be on last
 / return for the given string is "Is my name pandey prabhakar".
 **/ 
-var str = "My name is Prabhakar Pandey.";
+//var str = "My name is Prabhakar Pandey.";
+
+var str = "My name is Prakhar.";
 function printTheString(str){
     var stringArray = str.split(' ');
     var objMap = {};
